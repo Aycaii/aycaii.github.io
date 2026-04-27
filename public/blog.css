@@ -1,0 +1,35 @@
+.center-box {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 0 24px;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.header a {
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.header h2 {
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+}
+
+.blogs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.blogs a {
+  font-size: 0.95rem;
+  color: #e08cba;
+}
+
+.blogs a:hover {
+  color: #e2cca9;
+}

@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #151718;
+  color: #e2cca9;
+  min-height: 100vh;
+}
+
+a {
+  color: #e08cba;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #e2cca9;
+}
+
+.highlight {
+  color: #e08cba;
+}
