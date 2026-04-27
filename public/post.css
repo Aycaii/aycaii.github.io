@@ -14,7 +14,7 @@
 }
 
 .post-top a:hover {
-  color: #e08cba;
+  color: #a08ce0;
 }
 
 .post-box {
@@ -35,7 +35,7 @@
 
 .post-title-large {
   font-size: 1rem;
-  color: #e08cba;
+  color: #a08ce0;
   flex: 1;
   line-height: 1.5;
 }
@@ -48,7 +48,7 @@
 
 .post-tldr {
   background-color: #252829;
-  border-left: 3px solid #e08cba;
+  border-left: 3px solid #a08ce0;
   padding: 16px 20px;
   margin-bottom: 40px;
   border-radius: 0 6px 6px 0;
@@ -56,7 +56,7 @@
 
 .tldr-label {
   font-size: 0.75rem;
-  color: #e08cba;
+  color: #a08ce0;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   display: block;
@@ -71,7 +71,7 @@
 
 .post-content h2 {
   font-size: 1.3rem;
-  color: #e08cba;
+  color: #a08ce0;
   margin: 36px 0 16px;
   letter-spacing: 0.03em;
 }

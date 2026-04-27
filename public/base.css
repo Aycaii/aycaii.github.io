@@ -47,3 +47,16 @@ main {
     height: 130px;
   }
 }
+
+.terminal-tag {
+  position: fixed;
+  top: 20px;
+  left: 24px;
+  font-size: 0.85rem;
+  color: #928374;
+}
+
+.terminal-tag a {
+  color: #a08ce0;
+}
+

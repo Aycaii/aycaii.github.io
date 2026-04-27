@@ -42,7 +42,7 @@
 }
 
 .post-item:hover {
-  border-left-color: #e08cba;
+  border-left-color: #a08ce0;
 }
 
 .post-header {
@@ -55,7 +55,7 @@
 
 .post-title {
   font-size: 1rem;
-  color: #e08cba;
+  color: #a08ce0;
   flex: 1;
   line-height: 1.5;
 }
