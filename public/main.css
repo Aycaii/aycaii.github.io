@@ -16,6 +16,7 @@ body {
   color: var(--text);
   font-family: 'Courier New', monospace;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* ── NAVIGATION ── */
@@ -26,3 +27,4 @@ nav a:hover, nav a.active { color: var(--pink); }
 @media(max-width:600px){
   nav { padding: .8rem 1rem; }
 }
+

@@ -6,35 +6,7 @@
   <title>alyssa chai</title>
   <link rel="stylesheet" href="public/main.css"/>
   <link rel="stylesheet" href="public/blog.css"/>
-  <style>
-    .page { display: none; padding: 2rem; max-width: 860px; margin: 0 auto; }
-    .page.active { display: block; }
-    #page-home { max-width: none; margin: 0; }
-
-    .banner { color: var(--pink); font-size: var(--banner-font); line-height: 1.6; margin-bottom: 1.8rem; white-space: pre; }
-    .banner .dim { color: var(--dim); }
-
-    #terminal-wrap { display: flex; flex-direction: column; min-height: 400px; margin-bottom: 2.5rem; }
-    #output { flex-shrink: 0; }
-
-    .out-line, .prompt-label, #cmd-input { font-size: var(--terminal-font); font-family: inherit; }
-
-    .out-line { color: var(--text); line-height: 1.7; white-space: pre-wrap; }
-    .out-line.pink  { color: var(--pink); }
-    .out-line.muted { color: var(--muted); }
-    .out-line.err   { color: #ff8080; }
-    .out-line a { color: var(--pink); text-decoration: none; border-bottom: 1px solid transparent; }
-    .out-line a:hover { border-bottom: 1px solid var(--pink); }
-
-    .prompt-row { display: flex; align-items: center; gap: .4rem; margin-top: 0.5rem; }
-    .prompt-label { color: var(--pink); white-space: nowrap; }
-    #cmd-input { background: transparent; border: none; outline: none; color: var(--pink); flex: 1; caret-color: var(--pink); }
-
-    @media(max-width:600px){
-      .page { padding: 1rem; }
-      .banner { font-size: 1.2rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="public/base.css"/>
 </head>
 <body>
 
@@ -46,22 +18,38 @@
 </nav>
 
 <div class="page active" id="page-home">
-  <div class="banner"><span class="dim">╔════════════════════════════════════════════════════════════════╗</span>
-<span class="dim">║</span>               welcome to alyssachai.com  v1.0.0                <span class="dim">║</span>
-<span class="dim">║</span>                                                                <span class="dim">║</span>
-<span class="dim">║</span>  Hi! I'm Alyssa and this is my bit of the internet.            <span class="dim">║</span>
-<span class="dim">║</span>  Type <span style="color:var(--pink)">'help'</span> to see what you can do, or just use the nav bar!  <span class="dim">║</span>
-<span class="dim">╚════════════════════════════════════════════════════════════════╝</span></div>
+
+  <div class="banner-wrap">
+    <div class="banner">
+      <p class="banner-sub">Hi! I'm Alyssa and this is my corner of the internet.</p>
+      <p class="banner-sub">Type <span style="color:var(--pink)">'help'</span> in the terminal to explore my site!</p>
+    </div>
+    <div class="status-bar">
+      <div class="status-dot"></div>
+      <span>system <b>online</b></span>
+      <span>user <b>guest</b></span>
+      <span>session <b>active</b></span>
+      <span id="clock"></span>
+    </div>
+  </div>
 
   <div id="terminal-wrap">
+    <div class="term-titlebar">
+      <span class="term-title">guest@alyssachai.com: ~</span>
+      <div class="term-dot red"></div>
+      <div class="term-dot yellow"></div>
+      <div class="term-dot green"></div>
+    </div>
     <div id="output"></div>
     <div class="prompt-row">
       <span class="prompt-label">guest@alyssachai.com ~ $</span>
       <input id="cmd-input" type="text" autofocus autocomplete="off" spellcheck="false"/>
     </div>
   </div>
+
 </div>
 
+<script src="public/home.js"></script>
 <script src="public/terminal.js"></script>
 </body>
 </html>

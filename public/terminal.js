@@ -17,7 +17,6 @@ function print(content, mode = 'text', cls = 'out-line') {
   output.scrollTop = output.scrollHeight;
 }
 
-// banned
 function printPrompt(cmd) {
   const d = document.createElement('div');
   d.className = 'out-line';
@@ -52,7 +51,34 @@ const commands = {
   clear:             () => { output.innerHTML = ''; }
 };
 
+let tabMatches = [];
+let tabIndex = -1;
+
 input.addEventListener('keydown', e => {
+
+  if (e.key === 'Tab') {
+    e.preventDefault();
+    const partial = input.value.toLowerCase();
+
+    if (tabIndex === -1) {
+
+      tabMatches = Object.keys(commands).filter(cmd => cmd.startsWith(partial));
+      if (tabMatches.length === 0) return;
+  
+      tabIndex = 0;
+      input.value = tabMatches[0];
+      return;
+    }
+
+    tabIndex = (tabIndex + 1) % tabMatches.length;
+    input.value = tabMatches[tabIndex];
+    return;
+  }
+
+  tabMatches = [];
+  tabIndex = -1;
+
+  
   if (e.key !== 'Enter') return;
   const raw = input.value.trim();
   const cmd = raw.toLowerCase();
@@ -68,7 +94,7 @@ input.addEventListener('keydown', e => {
   if (commands[cmd]) {
     commands[cmd]();
   } else {
-    print(`bash: ${cmd}: command not found. try 'help'`, 'text', 'out-line err');
+    print(`zsh: command not found: ${cmd} try 'help'`, 'text', 'out-line err');
   }
 });
 
