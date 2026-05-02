@@ -48,8 +48,10 @@ const commands = {
   'cd blogs':        () => { print('navigating...', 'text', 'out-line muted'); setTimeout(()=>{ window.location.href='/blog/'; }, 400); },
   'cd projects':     () => { print('navigating...', 'text', 'out-line muted'); setTimeout(()=>{ window.location.href='/projects/'; }, 400); },
   'cat socials.txt': () => print(socialsText, 'html'),
-  clear:             () => { output.innerHTML = ''; }
-};
+  clear:             () => { output.innerHTML = ''},
+  'ls -a':            () => print('blogs/  projects/  socials.txt  .env', 'html', 'out-line pink'),
+  'cat .env': () => { window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); },
+}
 
 let tabMatches = [];
 let tabIndex = -1;
@@ -61,7 +63,7 @@ input.addEventListener('keydown', e => {
     const partial = input.value.toLowerCase();
 
     if (tabIndex === -1) {
-
+    if (partial.length < 1) return;
       tabMatches = Object.keys(commands).filter(cmd => cmd.startsWith(partial));
       if (tabMatches.length === 0) return;
   
