@@ -1,13 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>alyssa's blog</title>
-  <link rel="stylesheet" href="../public/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>projects/ — alyssa chai</title>
+  <link rel="stylesheet" href="../public/main.css"/>
+  <link rel="stylesheet" href="../public/blog.css"/>
+  <style>
+    .blog-wrap { padding: 2rem; max-width: 860px; margin: 0 auto; }
+    @media(max-width:600px){ .blog-wrap { padding: 1rem; } }
+  </style>
 </head>
 <body>
-    Under Construction 
+
+<nav>
+  <a href="/">~ $</a>
+  <a href="/blog/">blogs/</a>
+  <a href="/projects/" class="active">projects/</a>
+  <a href="/about/">about</a>
+</nav>
+
+<div class="blog-wrap">
+  <div class="section-title">$ <span>cd Projects</span></div>
+  <div class="card-list">
+
+    <a class="card" href="https://github.com/Aycaii/Walkthroughs" target="_blank" rel="noopener noreferrer">
+      <div class="card-header">
+        <span class="card-title">Walkthroughs</span>
+        <span class="card-date">Ongoing</span>
+      </div>
+      <div class="card-excerpt">A collection of writeups and walkthroughs for retired HackTheBox Machines. Covers both Linux and Windows environments.</div>
+      <div>
+        <span class="tag tag-security">ctf</span>
+        <span class="tag tag-career">documentation</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://medium.com/@aycaii/microcorruption-levels-1-to-4-dd2bb8df4f4c" target="_blank" rel="noopener noreferrer">
+      <div class="card-header">
+        <span class="card-title">Microcorruption: Levels 1 to 4</span>
+        <span class="card-date">August 2025</span>
+      </div>
+      <div class="card-excerpt">A walkthrough of the first four Microcorruption CTF challenges, covering embedded security and assembly-level debugging. Written before I had this site so its on Medium..</div>
+      <div>
+        <span class="tag tag-security">ctf</span>
+        <span class="tag tag-travel">reverse engineering</span>
+        <span class="tag tag-career">documentation</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://github.com/Aycaii/4700/tree/main/project6" target="_blank" rel="noopener noreferrer">
+      <div class="card-header">
+        <span class="card-title">DNS Server</span>
+        <span class="card-date">April 2025</span>
+      </div>
+      <div class="card-excerpt">Implementation of a functional DNS Server that handles queries and interacts with a network of other DNS Servers</div>
+      <div>
+        <span class="tag tag-coding">python</span>
+        <span class="tag tag-subject">networks</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
 </body>
 </html>

@@ -1,32 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>whoami | alyssa chai</title>
-  <link rel="stylesheet" href="../public/main.css" />
-  <link rel="stylesheet" href="../public/post.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>whoami — alyssa chai</title>
+  <link rel="stylesheet" href="../public/main.css"/>
+  <style>
+    .about-wrap { padding: 2rem; }
+
+    .about-block { font-size: 0.9rem; line-height: 1.9; }
+    .about-block .prompt { color: var(--pink); margin-left: 0; margin-bottom: 0.6rem; }
+    .about-block p { color: var(--text); margin-left: 1rem; margin-bottom: 0.6rem; }
+    .about-block .field { color: var(--dim); }
+    .about-block a { color: var(--pink); }
+
+    @media(max-width:600px){
+      .about-wrap { padding: 1rem; }
+    }
+  </style>
 </head>
 <body>
 
-  <div class="post-wrapper">
+<nav>
+  <a href="/">~ $</a>
+  <a href="/blog/">blogs/</a>
+  <a href="/projects/">projects/</a>
+  <a href="/about/" class="active">about</a>
+</nav>
 
-    <div class="post-top">
-      <a href="/">← home</a>
-    </div>
-
-    <div class="post-box">
-      <div class="post-meta">
-        <span class="post-title-large">$ whoami</span>
-      </div>
-
-      <div class="post-content">
-        <p>I'm Alyssa, a 3rd year Cybersecurity student at Northeastern University, originally from the Bay Area. I am an incoming Product Security Software Engineer Intern at Snowflake, with a background in offensive security.</p>
-        <p>I am currently still building this site but feel free to have a look around!</p>
-      </div>
-    </div>
-
+<div class="about-wrap">
+  <div class="about-block">
+    <p class="prompt">guest@alyssachai.com ~ $ whoami</p>
+    <p><span class="field" style="color:#a89ee6;">name        </span>  Alyssa Chai</p>
+    <p><span class="field" style="color:#6ec6a0;">role        </span>  Student at Northeastern University</p>
+    <p><span class="field" style="color:#e0a96d;">location    </span>  San Francisco, CA / Boston, MA</p>
+    <p><span class="field" style="color:#e082a0;">interests   </span>  Security, Reading, Scrapbooking</p>
+    <p><span class="field" style="color:#7ab8e8;">studying    </span>  Cybersecurity</p>
+    <br/>
+    <p>This site is for hosting a compilation of all the things security and non-security related that I've built and wrote about recently. Please get in touch via my socials below! </p>
+    <br/>
+    <p>email     →  <a href="mailto:alyssa8chai@gmail.com">alyssa8chai@gmail.com</a></p>
+    <p>github    →  <a href="https://github.com/Aycaii/" target="_blank" rel="noopener noreferrer">github.com/Aycaii</a></p>
+    <p>linkedin  →  <a href="https://www.linkedin.com/in/alyssa-chai-i7/" target="_blank" rel="noopener noreferrer">linkedin.com/in/alyssa-chai-i7</a></p>
   </div>
+</div>
 
 </body>
 </html>

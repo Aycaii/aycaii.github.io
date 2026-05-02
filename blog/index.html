@@ -1,53 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>alyssa's blog</title>
-  <link rel="stylesheet" href="../public/main.css" />
-  <link rel="stylesheet" href="../public/blog.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>blogs/ — alyssa chai</title>
+  <link rel="stylesheet" href="../public/main.css"/>
+  <link rel="stylesheet" href="../public/blog.css"/>
+  <style>
+    .blog-wrap { padding: 2rem; max-width: 860px; margin: 0 auto; }
+    @media(max-width:600px){ .blog-wrap { padding: 1rem; } }
+  </style>
 </head>
+
 <body>
 
-  <div class="page-wrapper">
-    <header class="blog-header">
-      <a href="/">~ $</a>
-    </header>
+<nav>
+  <a href="/">~ $</a>
+  <a href="/blog/" class="active">blogs/</a>
+  <a href="/projects/">projects/</a>
+  <a href="/about/">about</a>
+</nav>
 
-    <main class="main">
-      <h1>Thoughts</h1>
+<div class="blog-wrap">
+  <div class="section-title">$ <span>cd Blog</span></div>
+  <div class="card-list">
 
-      <div class="post-list">
-
-        <a href="enigma/">
-          <div class="post-item">
-            <div class="post-header">
-              <span class="post-title">How Enigma Violated Indistinguishability under Chosen-Plaintext Attack</span>
-              <time class="post-date">March 2026</time>
-            </div>
-            <div class="post-excerpt">
-              <p>A cryptographic analysis of the Enigma machine and how its structural flaws — including the reflector's guarantee that no letter encrypts to itself — fundamentally broke IND-CPA security.</p>
-            </div>
-          </div>
-        </a>
-
-        <a href="south-africa/">
-          <div class="post-item">
-            <div class="post-header">
-              <span class="post-title">South Africa: Spatial Justice and the Post-Apartheid City</span>
-              <time class="post-date">August 2024</time>
-            </div>
-            <div class="post-excerpt">
-              <p>An exploration of how apartheid-era urban planning continues to shape spatial inequality in South African cities today, and what spatial justice might look like in a post-apartheid context.</p>
-            </div>
-          </div>
-        </a>
-
+    <a class="card">
+      <div class="card-header">
+        <span class="card-title">Cryptographic Protocols in Review</span>
+        <span class="card-date">May 2026</span>
       </div>
-    </main>
+      <div class="card-excerpt">IN PROGRESS: A cryptographic analysis of how modern protocols fulfill security definitions</div>
+      <div>
+        <span class="tag tag-security">security</span>
+      </div>
+
+    </a>
+        <a class="card" href="/blog/klogix/">
+      <div class="card-header">
+        <span class="card-title">Offensive Security Consultant at Klogix</span>
+        <span class="card-date">Dec 2025</span>
+      </div>
+      <div class="card-excerpt">A summary of my first co-op</div>
+      <div>
+        <span class="tag tag-career">career</span>
+        
+      </div>
+    </a>
+
+    <a class="card" href="/blog/south-africa/">
+      <div class="card-header">
+        <span class="card-title">South Africa: Spatial Justice and the Post-Apartheid City</span>
+        <span class="card-date">August 2024</span>
+      </div>
+      <div class="card-excerpt">A travel writing piece on informal settlements</div>
+      <div>
+        <span class="tag tag-travel">travel</span>
+      </div>
+    </a>
 
   </div>
+</div>
 
 </body>
 </html>

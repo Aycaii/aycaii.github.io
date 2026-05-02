@@ -1,45 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Personal website of Alyssa Chai" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>alyssa chai</title>
-  <link rel="stylesheet" href="public/main.css" />
-  <link rel="stylesheet" href="public/base.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Alyssa Chai",
-    "url": "https://alyssachai.com",
-    "sameAs": [
-      "https://github.com/Aycaii"
-    ]
-  }
-  </script>
+  <link rel="stylesheet" href="public/main.css"/>
+  <link rel="stylesheet" href="public/blog.css"/>
+  <style>
+    .page { display: none; padding: 2rem; max-width: 860px; margin: 0 auto; }
+    .page.active { display: block; }
+    #page-home { max-width: none; margin: 0; }
+
+    .banner { color: var(--pink); font-size: var(--banner-font); line-height: 1.6; margin-bottom: 1.8rem; white-space: pre; }
+    .banner .dim { color: var(--dim); }
+
+    #terminal-wrap { display: flex; flex-direction: column; min-height: 400px; margin-bottom: 2.5rem; }
+    #output { flex-shrink: 0; }
+
+    .out-line, .prompt-label, #cmd-input { font-size: var(--terminal-font); font-family: inherit; }
+
+    .out-line { color: var(--text); line-height: 1.7; white-space: pre-wrap; }
+    .out-line.pink  { color: var(--pink); }
+    .out-line.muted { color: var(--muted); }
+    .out-line.err   { color: #ff8080; }
+    .out-line a { color: var(--pink); text-decoration: none; border-bottom: 1px solid transparent; }
+    .out-line a:hover { border-bottom: 1px solid var(--pink); }
+
+    .prompt-row { display: flex; align-items: center; gap: .4rem; margin-top: 0.5rem; }
+    .prompt-label { color: var(--pink); white-space: nowrap; }
+    #cmd-input { background: transparent; border: none; outline: none; color: var(--pink); flex: 1; caret-color: var(--pink); }
+
+    @media(max-width:600px){
+      .page { padding: 1rem; }
+      .banner { font-size: 1.2rem; }
+    }
+  </style>
 </head>
 <body>
 
-  <div class="terminal-tag">
-  <a>guest@alyssachai.com ~ $</a>
-  </div>
+<nav>
+  <a href="/" id="nav-home">~ $</a>
+  <a href="/blog/" id="nav-blogs">blogs/</a>
+  <a href="/projects/" id="nav-projects">projects/</a>
+  <a href="/about/" id="nav-about">about</a>
+</nav>
 
-  <nav>
-    <a href="about/">whoami</a>
-    <a href="blog/">~/blog</a>
-    <a href="projects/">~/projects</a>
-    <a href="https://github.com/Aycaii" target="_blank">~/github</a>
-  </nav>
+<div class="page active" id="page-home">
+  <div class="banner"><span class="dim">╔════════════════════════════════════════════════════════════════╗</span>
+<span class="dim">║</span>               welcome to alyssachai.com  v1.0.0                <span class="dim">║</span>
+<span class="dim">║</span>                                                                <span class="dim">║</span>
+<span class="dim">║</span>  Hi! I'm Alyssa and this is my bit of the internet.            <span class="dim">║</span>
+<span class="dim">║</span>  Type <span style="color:var(--pink)">'help'</span> to see what you can do, or just use the nav bar!  <span class="dim">║</span>
+<span class="dim">╚════════════════════════════════════════════════════════════════╝</span></div>
 
-  <main>
-    <img src="https://github.com/Aycaii.png" alt="Alyssa Chai" class="pfp" />
-    <div class="intro">
-      <p>Hi! I'm <span class="highlight">Alyssa</span> and this is my bit of the internet.</p>
-      <p>If you'd like to get in touch, shoot an email to <a href="mailto:alyssa8chai@gmail.com">alyssa8chai@gmail.com</a>.</p>
+  <div id="terminal-wrap">
+    <div id="output"></div>
+    <div class="prompt-row">
+      <span class="prompt-label">guest@alyssachai.com ~ $</span>
+      <input id="cmd-input" type="text" autofocus autocomplete="off" spellcheck="false"/>
     </div>
-  </main>
+  </div>
+</div>
 
+<script src="public/terminal.js"></script>
 </body>
 </html>
