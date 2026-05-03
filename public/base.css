@@ -17,12 +17,7 @@ body::after {
 
 /* nav */
 nav { position: relative; }
-nav::after {
-  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, #c47a82, transparent);
-  opacity: .4;
-}
-nav a:hover, nav a.active { text-shadow: 0 0 12px rgba(255,179,186,0.4); }
+nav a:hover, nav a.active { text-shadow: 0 0 12px rgba(255, 179, 186, 0.4); }
 
 /* banner wrap */
 .banner-wrap { margin-bottom: 1.8rem; padding: 2rem 2rem 0; }
@@ -32,7 +27,7 @@ nav a:hover, nav a.active { text-shadow: 0 0 12px rgba(255,179,186,0.4); }
   font-size: var(--banner-font); line-height: 1.6;
   border: 1px solid #2a1a1e; border-radius: 4px;
   padding: 1.4rem 2rem;
-  background: linear-gradient(135deg, #0e0a0b 0%, #100c0d 50%, #0a0708 100%);
+  background: #100c0d;
   box-shadow: 0 0 40px rgba(255,100,140,.07), inset 0 0 60px rgba(0,0,0,.3);
   position: relative;
 }
@@ -67,7 +62,7 @@ nav a:hover, nav a.active { text-shadow: 0 0 12px rgba(255,179,186,0.4); }
   display: flex; align-items: center; gap: 1.2rem;
   font-size: .72rem; color: var(--muted);
   padding: .45rem 1.4rem;
-  border: 1px solid #1a1a1a; border-top: none; border-radius: 0 0 4px 4px;
+  border: 1px solid #201f1f; border-top: none; border-radius: 0 0 4px 4px;
   background: #0a0a0a;
 }
 .status-dot {
@@ -82,13 +77,13 @@ nav a:hover, nav a.active { text-shadow: 0 0 12px rgba(255,179,186,0.4); }
 /* terminal */
 #terminal-wrap {
   display: flex; flex-direction: column; min-height: 340px; margin-bottom: 2.5rem;
-  border: 1px solid #1e1414; border-radius: 4px; overflow: hidden;
-  box-shadow: 0 0 60px rgba(255,90,120,.05);
+  border: 1px solid #41262d; border-radius: 4px; overflow: hidden;
+  box-shadow: 0 0 80px rgba(255,90,120,.05);
 }
 .term-titlebar {
   display: flex; align-items: center; gap: .7rem;
   padding: .5rem .9rem;
-  background: #0d0d0d; border-bottom: 1px solid #1a1a1a; flex-shrink: 0;
+  background: rgb(20, 20, 20); border-bottom: 1px solid #1a1a1a; flex-shrink: 0;
   justify-content: flex-end;
 }
 .term-dot { width: 12px; height: 12px; border-radius: 50%; }
@@ -113,6 +108,7 @@ nav a:hover, nav a.active { text-shadow: 0 0 12px rgba(255,179,186,0.4); }
 .out-line.pink  { color: var(--pink); }
 .out-line.muted { color: var(--muted); }
 .out-line.err   { color: #ff8080; }
+.out-line.alert { color: var(--alert); }
 .out-line a { color: var(--pink); text-decoration: none; border-bottom: 1px solid transparent; }
 .out-line a:hover { border-bottom: 1px solid var(--pink); }
 

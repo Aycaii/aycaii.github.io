@@ -4,12 +4,14 @@
   --bg:   #0d0d0d;
   --bg2:  #111;
   --text: #c8c8c8;
-  --muted:#555;
-  --terminal-font: 0.9rem;
+  --muted:#5c8a94;
+  --alert: #cac07e;
+  --terminal-font: 0.88rem;
   --banner-font: 1rem;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
 
 body {
   background: var(--bg);
@@ -24,7 +26,7 @@ body {
 
 /* ── NAVIGATION ── */
 nav { display: flex; gap: 1.5rem; padding: 1rem 2rem; border-bottom: 1px solid #1e1e1e; font-size: .85rem; }
-nav a { color: var(--dim); text-decoration: none; transition: color .2s; cursor: pointer; }
+nav a { color: var(--dim); text-decoration: none; cursor: pointer; }
 nav a:hover, nav a.active { color: var(--pink); }
 
 @media(max-width:600px){

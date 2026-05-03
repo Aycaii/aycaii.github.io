@@ -34,6 +34,7 @@ const helpText = `  <span style="color:var(--pink)">help</span>             show
   <span style="color:var(--pink)">ls</span>               list table of contents
   <span style="color:var(--pink)">cd blogs</span>         see what i've been up to!
   <span style="color:var(--pink)">cd projects</span>      navigate to projects
+  <span style="color:var(--pink)">cd scrapbook</span>     my digital scrapbook
   <span style="color:var(--pink)">cat socials.txt</span>  show social links
   <span style="color:var(--pink)">clear</span>            clear terminal display`;
 
@@ -43,13 +44,14 @@ const socialsText = `  email     →  <a href="mailto:alyssa8chai@gmail.com">aly
 
 const commands = {
   help:              () => print(helpText, 'html'),
-  ls:                () => print('blogs/  projects/  socials.txt', 'text', 'out-line pink'),
-  whoami:            () => { print('navigating...', 'text', 'out-line muted'); setTimeout(()=>{ window.location.href='/about/'; }, 400); },
-  'cd blogs':        () => { print('navigating...', 'text', 'out-line muted'); setTimeout(()=>{ window.location.href='/blog/'; }, 400); },
-  'cd projects':     () => { print('navigating...', 'text', 'out-line muted'); setTimeout(()=>{ window.location.href='/projects/'; }, 400); },
+  ls:                () => print('blogs/  projects/  scrapbook/  socials.txt', 'text', 'out-line pink'),
+  whoami:            () => { setTimeout(()=>{ window.location.href='/about/'; }, 200); },
+  'cd blogs':        () => { setTimeout(()=>{ window.location.href='/blog/'; }, 200); },
+  'cd projects':     () => { setTimeout(()=>{ window.location.href='/projects/'; }, 200); },
+  'cd scrapbook':    () => { setTimeout(()=>{ window.location.href='/scrapbook/'; }, 200); },
   'cat socials.txt': () => print(socialsText, 'html'),
   clear:             () => { output.innerHTML = ''},
-  'ls -a':            () => print('blogs/  projects/  socials.txt  .env', 'html', 'out-line pink'),
+  'ls -a':            () => print('blogs/  projects/  scrapbook/  socials.txt  .env', 'html', 'out-line pink'),
   'cat .env': () => { window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); },
 }
 
@@ -90,7 +92,7 @@ input.addEventListener('keydown', e => {
   printPrompt(raw);
 
   if (/[<>&]/.test(raw)) {
-    print('suspicious pattern detected...', 'text', 'out-line muted');
+    print('(╭ರ_•́)suspicious pattern detected...', 'text', 'out-line alert');
   }
 
   if (commands[cmd]) {

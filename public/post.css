@@ -1,8 +1,5 @@
 .post-wrap { max-width: 680px; margin: 0 auto; padding: 2rem; }
 
-.post-back { display: inline-block; color: var(--dim); text-decoration: none; font-size: .85rem; margin-bottom: 2rem; }
-.post-back:hover { color: var(--pink); }
-
 .post-header { margin-bottom: 2rem; }
 .post-title { color: var(--pink); font-size: 1.2rem; line-height: 1.4; margin-bottom: .5rem; }
 .post-meta  { color: var(--muted); font-size: .8rem; }

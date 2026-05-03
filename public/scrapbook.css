@@ -1,0 +1,117 @@
+html, body { height: 100%; overflow: hidden; }
+
+.book-bg {
+  position: fixed;
+  inset: 0;
+  top: 3.4rem;
+  background: #0e0c0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-stage {
+  position: relative;
+  width:  min(90vw, calc((100vh - 3.4rem - 3.5rem) * 1.27));
+  height: min(calc(90vw / 1.27), calc(100vh - 3.4rem - 3.5rem));
+  perspective: 3500px;
+}
+
+.page {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 0.82s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.85);
+}
+
+.page img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #0e0c0a;
+}
+
+.page.flipped { transform: rotateY(-180deg); }
+
+.page::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.55) 0%, transparent 60%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.41s ease;
+}
+.page.is-flipping::after { opacity: 1; }
+
+.flip-btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.75);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, opacity 0.2s;
+  z-index: 300;
+}
+.flip-btn:hover { background: rgba(255,255,255,0.16); }
+.flip-btn.off   { opacity: 0.18; pointer-events: none; }
+#btn-l { left: 1rem; }
+#btn-r { right: 1rem; }
+
+.dots {
+  position: fixed;
+  bottom: 1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 9px;
+  z-index: 300;
+}
+.dots span {
+  display: block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.22);
+  transition: background 0.3s;
+}
+.dots span.on { background: rgba(255,255,255,0.82); }
+
+.back-link {
+  position: fixed;
+  top: calc(3.4rem + 0.7rem);
+  left: 1.2rem;
+  font-size: 0.7rem;
+  font-family: 'Courier New', monospace;
+  color: rgba(255,255,255,0.38);
+  text-decoration: none;
+  z-index: 300;
+  transition: color 0.2s;
+}
+.back-link:hover { color: rgba(255,255,255,0.85); }
+
+.pg-counter {
+  position: fixed;
+  top: calc(3.4rem + 0.7rem);
+  right: 1.2rem;
+  font-size: 0.7rem;
+  font-family: 'Courier New', monospace;
+  color: rgba(255,255,255,0.28);
+  z-index: 300;
+}
+
+@media (max-width: 600px) {
+  .flip-btn { width: 34px; height: 34px; font-size: 0.85rem; }
+  #btn-l { left: 0.4rem; }
+  #btn-r { right: 0.4rem; }
+}
