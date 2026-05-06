@@ -30,11 +30,10 @@ function printPrompt(cmd) {
 }
 
 const helpText = `  <span style="color:var(--pink)">help</span>             show this message
-  <span style="color:var(--pink)">whoami</span>           about me
+  <span style="color:var(--pink)">whoami</span>           navigate to about me
   <span style="color:var(--pink)">ls</span>               list table of contents
-  <span style="color:var(--pink)">cd blogs</span>         see what i've been up to!
+  <span style="color:var(--pink)">cd blog</span>         navigate to blog
   <span style="color:var(--pink)">cd projects</span>      navigate to projects
-  <span style="color:var(--pink)">cd scrapbook</span>     my digital scrapbook
   <span style="color:var(--pink)">cat socials.txt</span>  show social links
   <span style="color:var(--pink)">clear</span>            clear terminal display`;
 
@@ -44,15 +43,13 @@ const socialsText = `  email     →  <a href="mailto:alyssa8chai@gmail.com">aly
 
 const commands = {
   help:              () => print(helpText, 'html'),
-  ls:                () => print('blogs/  projects/  scrapbook/  socials.txt', 'text', 'out-line pink'),
+  ls:                () => print('blog   projects   socials.txt', 'text', 'out-line pink'),
   whoami:            () => { setTimeout(()=>{ window.location.href='/about/'; }, 200); },
-  'cd blogs':        () => { setTimeout(()=>{ window.location.href='/blog/'; }, 200); },
+  'cd blog':        () => { setTimeout(()=>{ window.location.href='/blog/'; }, 200); },
   'cd projects':     () => { setTimeout(()=>{ window.location.href='/projects/'; }, 200); },
-  'cd scrapbook':    () => { setTimeout(()=>{ window.location.href='/scrapbook/'; }, 200); },
   'cat socials.txt': () => print(socialsText, 'html'),
   clear:             () => { output.innerHTML = ''},
-  'ls -a':            () => print('blogs/  projects/  scrapbook/  socials.txt  .env', 'html', 'out-line pink'),
-  'cat .env': () => { window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); },
+  'rm -rf': () => { window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); },
 }
 
 let tabMatches = [];

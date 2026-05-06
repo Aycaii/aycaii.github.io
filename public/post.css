@@ -1,11 +1,15 @@
 .post-wrap { max-width: 680px; margin: 0 auto; padding: 2rem; }
 
-.post-header { margin-bottom: 2rem; }
-.post-title { color: var(--pink); font-size: 1.2rem; line-height: 1.4; margin-bottom: .5rem; }
-.post-meta  { color: var(--muted); font-size: .8rem; }
+.post-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 1.5rem; margin-bottom: 2rem;
+}
+.post-header { flex: 1; }
+.post-title { color: var(--pink); font-size: 1.2rem; line-height: 1.4; margin-bottom: .5rem; font-family: var(--sans); }
+.post-meta  { color: var(--muted); font-size: .8rem; font-family: var(--sans); }
 .post-meta .tag { margin-left: .5rem; }
 
-.post-body { font-size: .9rem; line-height: 1.9; color: var(--text); }
+.post-body { font-size: .9rem; line-height: 1.9; color: var(--text); font-family: var(--sans); }
 .post-body p  { margin-bottom: 1.2rem; }
 .post-body h2 { color: var(--pink); font-size: 1rem; margin: 2rem 0 .8rem; }
 .post-body h3 { color: var(--dim);  font-size: .9rem; margin: 1.5rem 0 .6rem; }
@@ -29,6 +33,17 @@
 .post-body ul li { padding-left: 1.2rem; position: relative; margin-bottom: .6rem; }
 .post-body ul li::before { content: '→'; position: absolute; left: 0; color: var(--pink); }
 
+.post-body img {
+  width: 100%; border-radius: 4px; margin-bottom: 1.2rem; display: block;
+}
+
+.post-img-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; margin-bottom: 1.2rem;
+}
+
+.post-img-grid img { margin-bottom: 0; }
+
 @media(max-width:600px){
   .post-wrap { padding: 1rem; }
+  .post-img-grid { grid-template-columns: 1fr; }
 }

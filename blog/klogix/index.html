@@ -6,19 +6,19 @@
   <title>Offensive Security Consultant at Klogix — alyssa chai</title>
   <link rel="stylesheet" href="../../public/main.css"/>
   <link rel="stylesheet" href="../../public/post.css"/>
+  <link rel="icon" type="image/png" href="../../public/favicon.png" />
 </head>
 <body>
 
 <nav>
   <a href="/">~ $</a>
-  <a href="/blog/" class="active">blogs/</a>
-  <a href="/projects/">projects/</a>
+  <a href="/blog/" class="active">blog</a>
+  <a href="/projects/">projects</a>
   <a href="/about/">about</a>
 </nav>
 
 <div class="post-wrap">
-  <a class="post-back" href="/blog/">← blogs</a>
-
+  <div class="post-top">
   <div class="post-header">
     <h1 class="post-title">Offensive Security Consultant at Klogix</h1>
     <div class="post-meta">
@@ -27,6 +27,8 @@
       <span class="tag tag-security">security</span>
     </div>
   </div>
+    <a class="post-back" href="/blog/">← blog</a>
+</div>
 
   <div class="post-body">
     <p>This past semester I had the amazing opportunity to work with Klogix's Offensive Security Testing Team as a Consultant/Pentesting Co-op! My job was to find vulnerabilities in client applications and report back with mitigation strategies and suggestions for improving their overall security posture.</p>
@@ -37,15 +39,16 @@
 
     <ul>
       <li>Almost every web application vulnerability came down to authorization workflows, whether that was missing middleware checks or misuse of JSON Web Tokens. These issues usually cropped up after infrastructure updates where edge cases got missed.</li>
-      <li>Internal network pen tests are hard. I felt the most out of my depth here since it wasn't something I'd covered in class, but using Bloodhound and its automated pathfinding was possibly the coolest tool I've ever used.</li>
+      <li>Internal network pen tests are hard. I felt the most out of my depth here since it wasn't something I'd covered in class, but using Bloodhound and its automated pathfinding was a very cool tool I got to try</li>
       <li>I got to see how privilege escalation and lateral movement work across a network through some really cool attack chains -> Multicast Network Poisoning for initial access, Kerberoasting for escalation up to forging a Golden Ticket to maintain Domain Admin.</li>
       <li>Enable SMB signing.</li>
-      <li>Don't run Responder in Analyze mode unless you want to set off a bunch of security alerts for your client.</li>
+      <li>I ran out of linkedin searches from doing passive recon</li>
+      <li>Responder defaults to Intruder mode, so unless you want to set off a bajillion security alerts for your client, use the analyze flag...</li>
     </ul>
 
     <p>Overall, I had a great time! The people on this team are incredibly talented and I never felt left behind. Whenever I was overwhelmed or lost, someone took the time to make sure I understood what was going on. It was a genuine pleasure to learn from them and I hope to work with them again someday.</p>
 
-    <p>That said, there were moments where pentesting felt a little too similar to auditing. A lot of what I was doing (cough APIs and general recon) got repetitive fast. While I didn't personally get to do this, my team also runs red teams, which is something I'd love to try in the future. To me it seems a little more engaging than as it adds a layer of social engineering and more calculated, strategic attacks rather than just trying to find as many vulnerabilities as fast as possible.</p>
+    <p>That said, there were moments where pentesting felt a little too similar to auditing. A lot of what I was doing (like brute force credential harvesting) got repetitive fast. I'd love to try a red team engagement in the future, as it adds a layer of social engineering and more calculated, strategic attacks, which is not something I consider when pentesting.</p>
   </div>
 </div>
 

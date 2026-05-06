@@ -6,47 +6,56 @@
   <title>alyssa chai</title>
   <link rel="stylesheet" href="public/main.css"/>
   <link rel="stylesheet" href="public/base.css"/>
+  <link rel="icon" type="image/png" href="public/favicon.png" />
 </head>
 <body>
 
-<nav>
-  <a href="/" id="nav-home">~ $</a>
-  <a href="/blog/" id="nav-blogs">blogs</a>
-  <a href="/projects/" id="nav-projects">projects</a>
-  <a href="/scrapbook/" id="nav-scrapbook">scrapbook</a>
-  <a href="/about/" id="nav-about">about</a>
-</nav>
+<header class="sys-header">
+  <nav>
+    <a href="/" id="nav-home">~ $</a>
+    <a href="/blog/" id="nav-blog">blog</a>
+    <a href="/projects/" id="nav-projects">projects</a>
+    <a href="/about/" id="nav-about">about</a>
+  </nav>
+</header>
 
 <div class="page active" id="page-home">
 
-  <div class="banner-wrap">
-    <div class="banner">
-      <p class="banner-sub">Hi! I'm Alyssa and this is my corner of the internet.</p>
-      <p class="banner-sub">Type <span style="color:var(--pink)">'help'</span> in the terminal to explore my site!</p>
-    </div>
-    <div class="status-bar">
-      <div class="status-dot"></div>
-      <span>system <b>online</b></span>
-      <span>user <b>guest</b></span>
-      <span>session <b>active</b></span>
-      <span id="clock"></span>
-    </div>
+  <div class="home-top">
+    <div class="sys-name">ALYSSA CHAI</div>
+    <div class="home-bio">
+    <p>Hi! I'm Alyssa, an undergraduate student studying Cybersecurity, and this is my bit of the internet.</p>
+    <p>This site is a running log of all the things I've built, written, and accomplished so far. Check out my <a class="hl-link" href="/blog/">blog</a> and <a class="hl-link" href="/projects/">projects</a>, to see what I've been up to.</p>
+    <p>I would love to get in contact so shoot me an email to <a class="hl-link" href="mailto:alyssa8chai@gmail.com">alyssa8chai@gmail.com</a></p>
+  </div>
   </div>
 
   <div id="terminal-wrap">
     <div class="term-titlebar">
+      <div class="term-dots">
+        <div class="term-dot red"></div>
+        <div class="term-dot yellow"></div>
+        <div class="term-dot green"></div>
+      </div>
       <span class="term-title">guest@alyssachai.com: ~</span>
-      <div class="term-dot red"></div>
-      <div class="term-dot yellow"></div>
-      <div class="term-dot green"></div>
+      <div class="term-dots term-dots-spacer"></div>
     </div>
-    <div id="output"></div>
-    <div class="prompt-row">
-      <span class="prompt-label">guest@alyssachai.com ~ $</span>
-      <input id="cmd-input" type="text" autofocus autocomplete="off" spellcheck="false"/>
+    <div class="term-body">
+      <div id="output">
+        <div class="out-line muted">type 'help' to explore</div>
+      </div>
+      <div class="prompt-row">
+        <span class="prompt-label">guest@alyssachai.com ~ $</span>
+        <input id="cmd-input" type="text" autofocus autocomplete="off" spellcheck="false"/>
+      </div>
     </div>
   </div>
 
+</div>
+
+<div class="home-clock">
+  <span class="status-dot"></span>
+  <span id="clock"></span>
 </div>
 
 <script src="public/home.js"></script>

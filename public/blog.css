@@ -1,27 +1,38 @@
-.section-title { margin-bottom: 1.2rem; font-size: .9rem; color: var(--muted); }
+.section-title { margin-bottom: 1.2rem; font-size: .9rem; color: var(--muted); font-family: var(--sans); }
 .section-title span { color: var(--pink); font-size: 1rem; }
 
 .card-list { display: flex; flex-direction: column; gap: .8rem; }
 .card {
-  display: block; text-decoration: none; border: 1px solid #1e1e1e; border-radius: 4px;
-  padding: 1rem 1.2rem; background: var(--bg2); transition: border-color .2s;
+  display: block; text-decoration: none;
+  border: 1px solid #1e1828; border-radius: 4px;
+  padding: 1rem 1.2rem; background: var(--bg2);
+  transition: border-color .2s, box-shadow .2s, background .2s;
 }
-.card:hover { border-color: var(--pink); }
+.card:hover {
+  border-color: #3d3060;
+  background: #130f1e;
+  box-shadow: 0 0 18px rgba(196,176,255,0.07);
+}
 .card-header { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
-.card-title { color: var(--pink); font-size: .9rem; }
-.card-date  { color: var(--muted); font-size: .9rem; }
-.card-excerpt { color: var(--text); font-size: .9rem; margin-top: .5rem; line-height: 1.6; }
+.card-title { color: var(--pink); font-size: .9rem; font-family: var(--sans); transition: text-shadow .2s; }
+.card:hover .card-title { text-shadow: 0 0 10px rgba(255,154,163,0.35); }
+.card-date  { color: var(--muted); font-size: .8rem; font-family: var(--sans); }
+.card-excerpt { color: var(--text); font-size: .85rem; margin-top: .5rem; line-height: 1.65; font-family: var(--sans); }
+
 .tag {
   display: inline-block; font-size: .7rem;
   border-radius: 3px; padding: .1rem .4rem; margin-right: .3rem; margin-top: .4rem;
-  border: 1px solid; opacity: .85;
+  border: 1px solid; opacity: .8;
+  transition: opacity .15s, box-shadow .15s;
+  font-family: var(--mono);
 }
+.tag:hover { opacity: 1; box-shadow: 0 0 6px currentColor; }
 
 .tag-security { color: #a89ee6; border-color: #a89ee6; }
 .tag-career   { color: #6ec6a0; border-color: #6ec6a0; }
-.tag-travel    { color: #e0a96d; border-color: #e0a96d; }
-.tag-coding { color: #e082a0; border-color: #e082a0; }
-.tag-subject { color: #aaebed; border-color: #aaebed; }
+.tag-travel   { color: #e0a96d; border-color: #e0a96d; }
+.tag-coding   { color: #e082a0; border-color: #e082a0; }
+.tag-subject  { color: #aaebed; border-color: #aaebed; }
 
 @media(max-width:600px){
   .card-header { flex-direction: column; gap: .2rem; }
