@@ -32,7 +32,7 @@ function printPrompt(cmd) {
 const helpText = `  <span style="color:var(--pink)">help</span>             show this message
   <span style="color:var(--pink)">whoami</span>           navigate to about me
   <span style="color:var(--pink)">ls</span>               list table of contents
-  <span style="color:var(--pink)">cd blog</span>         navigate to blog
+  <span style="color:var(--pink)">cd blog</span>          navigate to blog
   <span style="color:var(--pink)">cd projects</span>      navigate to projects
   <span style="color:var(--pink)">cat socials.txt</span>  show social links
   <span style="color:var(--pink)">clear</span>            clear terminal display`;
