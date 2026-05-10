@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>the RSA assumption — alyssa chai</title>
+  <link rel="stylesheet" href="../../public/main.css"/>
+  <link rel="stylesheet" href="../../public/post.css"/>
+  <link rel="icon" type="image/png" href="../../public/favicon.png" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"/>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+  <style>
+    .def-block {
+      border-left: 2px solid currentColor;
+      padding: 0.75em 1.1em;
+      margin: 1.5em 0;
+    }
+    .def-block.protocol { border-color: #7eb8f7; }
+    .def-block.game     { border-color: #a8d8a8; }
+    .def-block.proof    { border-color: #f0b97a; }
+
+    .def-block .block-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+    }
+    .def-block.protocol .block-label { color: #7eb8f7; }
+    .def-block.game     .block-label { color: #a8d8a8; }
+    .def-block.proof    .block-label { color: #f0b97a; }
+
+    .def-block p:last-child,
+    .def-block ol:last-child { margin-bottom: 0; }
+
+    .katex-display { margin: 1em 0; overflow-x: auto; }
+
+    .post-body h2 { margin-top: 2.2em; }
+
+    .post-body ol {
+      list-style: none;
+      padding-left: 1.4em;
+    }
+    .post-body ol > li {
+      position: relative;
+    }
+    .post-body ol > li::before {
+      content: "→";
+      position: absolute;
+      left: -1.4em;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/">~ $</a>
+  <a href="/blog/" class="active">blog</a>
+  <a href="/projects/">projects</a>
+  <a href="/about/">about</a>
+</nav>
+
+<div class="post-wrap">
+  <div class="post-top">
+  <div class="post-header">
+    <h1 class="post-title">the RSA assumption</h1>
+    <div class="post-meta">
+      May 2026
+      <span class="tag tag-security">security</span>
+    </div>
+  </div>
+    <a class="post-back" href="/blog/">← blog</a>
+</div>
+
+  <div class="post-body">
+
+    <p>While at the University of Edinburgh I got to take a class in Modern Cryptography. Most of this class revolved around proving security around computational hardness. We worked with PRGs, PRFs, and how to reduce modern cryptographic protocols to computationally hard problems like the Decisional Diffie-Hellman assumption. In the last week there was a brief introduction to Zero Knowledge Proofs and proving security with leakage instead of hardness.</p>
+
+    <p>Below is a reduction of how RSA OAEP is in fact IND-CPA secured by the RSA Assumption: the hardness of finding $e$-th roots modulo $N$. I thought this would be interesting because in class we only went as far as black box reductions. This is a knowledge extraction reduction which is different because compared to black box reductions where D simply outputs whatever A outputs, D has to use the results of A to extract something else and keeps track of A's queries.</p>
+
+    <h2>The RSA-OAEP Protocol</h2>
+
+    <div class="def-block protocol">
+      <div class="block-label">Generation</div>
+      <ol>
+        <li>Choose two large primes $p$ and $q$</li>
+        <li>Compute $N = pq$</li>
+        <li>Compute Euler's totient $\varphi(N) = (p-1)(q-1)$</li>
+        <li>Choose $e$ such that $1 &lt; e &lt; \varphi(N)$ and $\gcd(e, \varphi(N)) = 1$</li>
+        <li>Compute $d = e^{-1} \bmod \varphi(N)$</li>
+        <li>Output public key $\mathsf{pk} = (N, e)$ and secret key $\mathsf{sk} = (N, d)$</li>
+      </ol>
+    </div>
+
+    <div class="def-block protocol">
+      <div class="block-label">Enc(pk, m) → c</div>
+      <ol>
+        <li>Compute $X = m \oplus G(r)$ and $Y = r \oplus H(X)$ where $r$ is a random nonce</li>
+        <li>The padded message is $\mu = (X \| Y)$</li>
+        <li>Output $c = \mu^e \bmod N$</li>
+      </ol>
+    </div>
+
+    <div class="def-block protocol">
+      <div class="block-label">Dec(sk, c) → m</div>
+      <ol>
+        <li>Recover $\mu = c^d \bmod N$</li>
+        <li>Split into $X$ and $Y$, then recover $r = Y \oplus H(X)$</li>
+        <li>Recover $m = X \oplus G(r)$</li>
+      </ol>
+    </div>
+
+    <h2>IND-CPA Security Game Rules</h2>
+
+    <div class="def-block game">
+      <div class="block-label">Set Up</div>
+      <p>The challenger runs Gen to produce a public/private key pair (pk, sk). Like in the real world, the adversary knows the encryption scheme and the pk, the only thing kept secret is sk. The adversary outputs two messages $m_0$ and $m_1$ of equal length. The challenger picks a random bit $b \in \{0, 1\}$, encrypts $m_b$, and returns the challenge ciphertext $c^*$.</p>
+    </div>
+
+    <div class="def-block game">
+      <div class="block-label">Query Phase</div>
+      <p>Similar to how you can submit any message of your choice and encrypt it with someone's public key, the adversary can submit any message of their choosing to an oracle $\mathcal{O}$ who will encrypt them and return the cipher text. The only thing we are not allowed to encrypt in this oracle is $m_0$ and $m_1$.</p>
+    </div>
+
+    <div class="def-block game">
+      <div class="block-label">Challenge Phase and Win Condition</div>
+      <p>The adversary can continue making encryption queries as long as they occur within PPT. Then outputs a guess $b'$. The goal is to guess which $c^*$ is the cipher text to $m_b$.</p>
+      <p>The scheme is IND-CPA secure if for every PPT adversary, their advantage over random guessing is negligible:</p>
+      $$\Pr\!\left(\mathsf{PrivK}^{\mathsf{CPA}}_{\mathcal{A},\Pi}(1^n) = 1\right) \leq \tfrac{1}{2} + \mathsf{negl}(n)$$
+    </div>
+
+    <p>Now we can prove that this is in fact IND-CPA secure through a formal reduction.</p>
+
+    <div class="def-block proof">
+      <div class="block-label">Assumptions</div>
+      <p>Assume $\exists$ PPT adversary $\mathcal{A}$ that breaks IND-CPA of RSA-OAEP with non-negligible advantage:</p>
+      $$\Pr\!\left(\mathsf{PrivK}^{\mathsf{CPA}}_{\mathcal{A},\Pi}(1^n) = 1\right) \geq \tfrac{1}{2} + h(n) \text{ for some non-negligible } h$$
+      <p>Assume the RSA problem is hard — no PPT distinguisher $D$ can invert RSA with non-negligible advantage:</p>
+      $$\Pr\!\left(D(N, e, y) = x : y = x^e \bmod N\right) \leq \mathsf{negl}(n)$$
+    </div>
+
+    <p>Construct a Distinguisher $D$ that receives an RSA challenge $(N, e, y)$. $D$ wants to find an $x$ such that $x^e \equiv y \pmod{N}$. To do this, $D$ will use $\mathcal{A}$ which we assume can break RSA-OAEP. $\mathcal{A}$'s goal is to win the IND-CPA game written earlier.</p>
+
+    <h2>Constructing Distinguisher D</h2>
+
+    <p>$D$ receives an RSA challenge $(N, e, y)$ where $y = x^e \bmod N$ and must recover $x$. $D$ uses $\mathcal{A}$ as a subroutine.</p>
+
+    <ol>
+      <li>$D$ forwards the public key $(N, e)$ to $\mathcal{A}$. $\mathcal{A}$ responds with two messages $m_0$ and $m_1$.</li>
+      <li>$D$ simulates the random oracles $H$ and $G$. For any fresh query, $D$ picks a uniform random string, records it in G-List or H-List, and returns it. For repeat queries, $D$ returns the same value.</li>
+      <li>$D$ sets the challenge ciphertext $c^* = y$ and forwards it to $\mathcal{A}$ as the encryption of $m_b$. $\mathcal{A}$ runs, making oracle queries throughout, which $D$ answers via its simulated oracles.</li>
+      <li>$D$ keeps a complete log of all queries $\mathcal{A}$ makes to $H$.</li>
+    </ol>
+
+    <p>Now for the fun part, for $\mathcal{A}$ to distinguish $c^*$ with a non-negligible advantage, $\mathcal{A}$ must eventually query the random oracle $H$ on the correct intermediate value used during OAEP padding. This is referred to as the <strong>AskH</strong> event.</p>
+
+    <p>The intuition here is a little tricky but OAEP hides the randomness used during encryption through the relationship: $Y = r \oplus H(X)$</p>
+
+    <p>Without querying $H(X)$, the adversary cannot recover the randomness $r$ or learn anything meaningful about how the message was padded before RSA encryption. Therefore, any adversary that distinguishes the challenge ciphertext from random must query $H$ on this value with non-negligible probability.</p>
+
+    <p>For the sake of time, let's assume that $\Pr[\mathsf{AskH}] \geq h(n) - \mathsf{negl}(n)$ (formally this is another proof).</p>
+
+    <p>$D$ scans its H-List to find the oracle query corresponding to the value used during OAEP padding of the challenge ciphertext. Once this value is identified, $D$ can reconstruct the padded message $\mu$ that satisfies $y = \mu^e \bmod N$. This directly gives the RSA preimage, so $D$ outputs $x = \mu$.</p>
+
+    <ul>
+      <li>World 0: $y$ is a valid RSA ciphertext of $m_b$. $\mathcal{A}$ sees a properly distributed challenge and wins with probability $\geq \tfrac{1}{2} + h(n)$.</li>
+      <li>World 1: $y$ is a uniform random element of $\mathbb{Z}_N$ with no relation to $m_0$ or $m_1$. $\mathcal{A}$ wins with probability exactly $\tfrac{1}{2}$ cause it can do no better than just guessing.</li>
+    </ul>
+
+    <p>If $\mathcal{A}$ distinguishes World 0 from World 1 with non-negligible advantage $h(n)$, it must have queried $H$ on $s^*$, and $D$ recovers $x$ from that query log with the same non-negligible probability. This contradicts the original RSA hardness assumption we made. If $D$ is able to do this then RSA is not computationally hard, and we have a contradiction. Therefore no such $\mathcal{A}$ exists, and RSA-OAEP is IND-CPA secure.</p>
+
+    <p>And that's it! I would not call this a formal proof by any means as I definitely left out a few lemmas such as including the probability of oracle collisions, but I think this encapsulates the general idea.</p>
+
+    <p>To go a step further (which I did not do :D), you can also prove that RSA-OAEP is IND-CCA secure which is chosen as cipher text secure. This game functions the exact same way as IND-CPA except the adversary also gets access to a decryption oracle where it can decrypt any cipher texts, and provides a more stricter security definition because the adversary now has more power.</p>
+
+  </div>
+</div>
+
+</body>
+</html>

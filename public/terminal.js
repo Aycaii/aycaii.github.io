@@ -1,10 +1,9 @@
 const output = document.getElementById('output');
 const input  = document.getElementById('cmd-input');
+const termBody = document.querySelector('.term-body');
 
-const MAX_LINES = 10;
-
-function trimOutput() {
-  while (output.children.length > MAX_LINES) output.removeChild(output.firstChild);
+function scrollToBottom() {
+  termBody.scrollTop = termBody.scrollHeight;
 }
 
 function print(content, mode = 'text', cls = 'out-line') {
@@ -13,8 +12,7 @@ function print(content, mode = 'text', cls = 'out-line') {
   if (mode === 'html') d.innerHTML = content;
   else d.textContent = content;
   output.appendChild(d);
-  trimOutput();
-  output.scrollTop = output.scrollHeight;
+  scrollToBottom();
 }
 
 function printPrompt(cmd) {
@@ -26,7 +24,7 @@ function printPrompt(cmd) {
   d.appendChild(label);
   d.appendChild(document.createTextNode(cmd));
   output.appendChild(d);
-  if (typeof trimOutput === 'function') trimOutput();
+  scrollToBottom();
 }
 
 const helpText = `  <span style="color:var(--pink)">help</span>             show this message
