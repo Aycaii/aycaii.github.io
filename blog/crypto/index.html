@@ -147,7 +147,7 @@
       <div class="block-label">Assumptions</div>
       <p>Assume $\exists$ PPT adversary $\mathcal{A}$ that breaks IND-CPA of RSA-OAEP with non-negligible advantage:</p>
       $$\Pr\!\left(\mathsf{PrivK}^{\mathsf{CPA}}_{\mathcal{A},\Pi}(1^n) = 1\right) \geq \tfrac{1}{2} + h(n) \text{ for some non-negligible } h$$
-      <p>Assume the RSA problem is hard — no PPT distinguisher $D$ can invert RSA with non-negligible advantage:</p>
+      <p>Assume the RSA problem is hard meaning no PPT distinguisher $D$ can invert RSA with non-negligible advantage:</p>
       $$\Pr\!\left(D(N, e, y) = x : y = x^e \bmod N\right) \leq \mathsf{negl}(n)$$
     </div>
 
@@ -164,7 +164,8 @@
       <li>$D$ keeps a complete log of all queries $\mathcal{A}$ makes to $H$.</li>
     </ol>
 
-    <p>Now for the fun part, for $\mathcal{A}$ to distinguish $c^*$ with a non-negligible advantage, $\mathcal{A}$ must eventually query the random oracle $H$ on the correct value used during OAEP padding, which we will refer to as the <strong>AskH</strong> event. In a separate proof, which is omitted in this blog, you can actually prove that $\Pr[\mathsf{AskH}] \geq h(n) - \mathsf{negl}(n)$.</p>
+
+   </p>For $\mathcal{A}$ to distinguish $c^*$ with a non-negligible advantage, $\mathcal{A}$ must eventually query the random oracle $H$ on the correct value used during OAEP padding, which we will refer to as the <strong>AskH</strong> event. In a separate proof, which is omitted in this blog, you can actually prove that $\Pr[\mathsf{AskH}] \geq h(n) - \mathsf{negl}(n)$.</p>
 
     <p>The intuition behind this though is that without querying $H(X)$, the adversary can't recover $r$ or learn anything useful about the message. Therefore, any adversary that distinguishes the challenge ciphertext from random must query $H$ on this value with non-negligible probability.</p>
 
@@ -183,11 +184,9 @@
 
     $$\Pr[D \text{ inverts RSA}] \;\leq\; \mathsf{negl}(n)$$
 
-    <p>Putting these together:</p>
-
     $$\mathsf{negl}(n) \;\geq\; h(n) - \mathsf{negl}(n) \quad\Longrightarrow\quad h(n) \;\leq\; \mathsf{negl}(n)$$
 
-    <p>In other words, $\mathsf{negl} = \mathsf{poly}$, which contradicts the original RSA hardness assumption. So no such $\mathcal{A}$ can exist and RSA-OAEP is IND-CPA secure.</p>
+    <p>We run into a contradiction so no such $\mathcal{A}$ can exist and RSA-OAEP is IND-CPA secure.</p>
 
     <p>And that's it! I would not call this a formal proof by any means as I definitely left out a few lemmas such as including the probability of oracle collisions, but I think this encapsulates the general idea.</p>
 
