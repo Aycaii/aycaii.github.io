@@ -110,7 +110,7 @@
 .prompt-label { color: var(--pink); white-space: nowrap; }
 #cmd-input {
   background: transparent; border: none; outline: none;
-  color: var(--pink); flex: 1; caret-color: var(--pink);
+  color: var(--text); flex: 1; caret-color: var(--text);
   font-family: var(--term); font-size: 0.82rem;
 }
 
