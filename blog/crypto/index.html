@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>the RSA assumption — alyssa chai</title>
-  <link rel="stylesheet" href="../../public/main.css"/>
+  <link rel="stylesheet" href="../../public/base.css"/>
   <link rel="stylesheet" href="../../public/post.css"/>
   <link rel="icon" type="image/png" href="../../public/favicon.png" />
 
@@ -176,7 +176,7 @@
       <li><strong>World 1:</strong> $y$ is a uniform random element of $\mathbb{Z}_N$ which is just random. $\mathcal{A}$ wins with probability exactly $\tfrac{1}{2}$ cause it can do no better than just guessing.</li>
     </ul>
 
-    <p>If $\mathcal{A}$ distinguishes World 0 from World 1 with non-negligible advantage $h(n)$, then it must have queried $H$ on $s^*$, and $D$ recovers $x$ from that query log with the same probability:</p>
+    <p>If $\mathcal{A}$ distinguishes World 0 from World 1 with non-negligible advantage $h(n)$, then it must have queried $H$, and $D$ recovers $x$ from that query log with the same probability:</p>
 
     $$\Pr[D \text{ inverts RSA}] \;=\; \Pr[\mathcal{A} \text{ wins IND-CPA}] \;\geq\; h(n) - \mathsf{negl}(n)$$
 

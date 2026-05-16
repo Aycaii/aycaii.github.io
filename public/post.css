@@ -13,8 +13,6 @@
 .post-body p  { margin-bottom: 1.2rem; }
 .post-body h2 { color: var(--pink); font-size: 1rem; margin: 2rem 0 .8rem; }
 .post-body h3 { color: var(--dim);  font-size: .9rem; margin: 1.5rem 0 .6rem; }
-.post-body a  { color: var(--pink); text-decoration: none; border-bottom: 1px solid transparent; }
-.post-body a:hover { border-bottom: 1px solid var(--pink); }
 .post-body code {
   background: #1a1a1a; color: var(--pink); font-family: 'Courier New', monospace;
   font-size: .85rem; padding: .1rem .4rem; border-radius: 3px;
