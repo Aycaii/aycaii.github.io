@@ -7,15 +7,6 @@
   gap: 2.5rem;
 }
 
-.sys-header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 1rem 2rem;
-  position: relative; z-index: 10000;
-}
-
-.sys-header nav { padding: 0; }
-
 .home-top {
   width: 600px;
   display: flex;
@@ -41,6 +32,7 @@
   color: var(--text);
   margin-bottom: 0.9rem;
   opacity: 0;
+  font-family: var(--mono);
   transform: translateY(6px);
   animation: bioin 0.55s ease-out forwards;
 }
@@ -135,7 +127,6 @@
 @media(max-width:600px){
   .page { padding: 1rem; }
   #page-home { padding: 2rem 1rem 5rem; gap: 2rem; }
-  .sys-header { padding: 0.8rem 1rem; }
   .sys-name { font-size: 1.7rem; }
   .home-top { width: 100%; }
   #terminal-wrap { width: 100%; height: 320px; }
