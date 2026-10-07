@@ -9,6 +9,7 @@
 }
 
 .sys-name {
+  font-family: 'Fira Code', 'Courier New', monospace;
   margin-bottom: 1rem;
   color: var(--pink);
 }
@@ -47,4 +48,9 @@
 .home-links a:hover {
   background-color: var(--green);
   color: var(--black);
+}
+
+.sys-name i {
+  color: var(--green);
+  margin-left: 0.3rem;
 }
