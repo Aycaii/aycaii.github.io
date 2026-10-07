@@ -43,47 +43,37 @@
 .tag::before { content: '#'; }
 
 
-.about-card {
+.about-bio::after {
+  content: '';
   display: block;
-  border: 1px solid var(--grey0);
-  padding: 1rem 1.2rem;
-  margin-bottom: 1rem;
+  clear: both;
 }
 
-.about-card p {
-  margin-bottom: 0.3rem;
+.about-bio p {
+  margin-bottom: 1.2rem;
 }
 
-.about-card a {
+.about-photo {
+  float: right;
+  width: 165px;
+  height: 165px;
+  object-fit: cover;
+  margin: 0.3rem 0 1rem 1.6rem;
+}
+
+.about-bio a {
   color: var(--green);
 }
 
-.about-card a:hover {
+.about-bio a:hover {
   background-color: var(--green);
   color: var(--black);
 }
 
-.about-card .field {
-  display: inline-block;
-  color: var(--green);
-  width: 10ch;
-}
-
-.about-card--profile {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.4rem;
-}
-
-.about-fields { flex: 1; }
-
-.about-photo {
-  width: 165px;
-  height: 165px;
-  object-fit: cover;
-  border: 1px solid var(--grey0);
-}
-
 @media (max-width: 600px) {
-  .about-card--profile { flex-direction: column; }
+  .about-photo {
+    width: 120px;
+    height: 120px;
+    margin-left: 1rem;
+  }
 }
