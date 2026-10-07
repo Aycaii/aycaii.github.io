@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Software Engineer at Snowflake — alyssa chai</title>
+  <link rel="stylesheet" href="../../public/base.css"/>
+  <link rel="stylesheet" href="../../public/post.css"/>
+  <link rel="icon" type="image/png" href="../../public/favicon.png" />
+</head>
+<body>
+
+<div class="post-wrap">
+  <div class="post-top">
+  <div class="post-header">
+    <h1 class="post-title">Software Engineer at Snowflake</h1>
+    <div class="post-meta">
+      Posted Oct 7, 2026
+    </div>
+  </div>
+    <a class="post-back" href="/blog/">← blog</a>
+</div>
+
+  <div class="post-body">
+    <p>Over the summer I worked as a software engineer intern on Snowflake's secrets, cryptography and identity infrastructure team.</p>
+
+    <p>I did two projects, one of which consisted of building a Kubernetes init container which authenticated to our internal secret storage and versioning service my team built and injected credentials from this service at run time. This was mainly used for automation workloads, and also helped with accessibility since now people using our services only needed to configure an init container and not all of our dependencies.</p>
+
+    <p>I got to learn a lot through this, mainly how to design features in large infrastructure with minimal code changes, readability, and extensibility. Things I had not thought about before from a security perspective, so the learning curve was definitely big. I ended up abstracting the functionality of a previously built init container into the one I was building in order to create a generic init container with a plug and play interface that can configure and integrate with our other services!</p>
+
+    <p>My second project was an API feature to the same secret storage that generates secret material through a PRG. I learned about the mathematical implementation of PRGs, how they are proven to be secure, etc. through my cryptography class, so it was cool to be able to see how one gets applied and used in a real setting. I also thought it was cool that most operating systems have a built in PRG that gets its random seed by collecting hardware entropy, like the temperature at a certain nanosecond concatenated with the temperature at another nanosecond. In class when proving PRG security we just assumed the given input seed s is random, but in real life the randomness has to come from somewhere.</p>
+
+    <p>Overall I had a great time! I got to learn about very necessary infrastructure and cloud security stuff almost every company uses a variant of to operate, while also getting to do something within my own technical niche.</p>
+  </div>
+</div>
+
+</body>
+</html>

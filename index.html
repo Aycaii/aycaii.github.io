@@ -6,52 +6,27 @@
   <title>alyssa chai</title>
   <link rel="stylesheet" href="public/base.css"/>
   <link rel="stylesheet" href="public/home.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
   <link rel="icon" type="image/png" href="public/favicon.png" />
 </head>
 <body>
 
-<nav>
-  <a href="/" id="nav-home">~ $</a>
-  <a href="/blog/" id="nav-blog">blog</a>
-  <a href="/projects/" id="nav-projects">projects</a>
-  <a href="/about/" id="nav-about">about</a>
-</nav>
+<div id="home">
 
+  <h1 class="sys-name">alyssa chai</h1>
 
-<div class="page active" id="page-home">
-
-  <div class="home-top">
-    <div class="sys-name">ALYSSA CHAI</div>
-    <div class="home-bio">
-    <p>Hi! I'm Alyssa, an undergraduate student studying Cybersecurity, and this is my bit of the internet.</p>
-    <p>This site is a running log of all the things I've built, written, and accomplished so far. Check out my <a class="hl-link" href="/blog/">blog</a> and <a class="hl-link" href="/projects/">projects</a>, to see what I've been up to.</p>
-    <p>I would love to get in contact so shoot me an email to <a class="hl-link" href="mailto:alyssa8chai@gmail.com">alyssa8chai@gmail.com</a></p>
-  </div>
+  <div class="home-bio">
+    <p style="margin-bottom: 20px;">Hi! I'm a cybersecurity student based in San Francisco and Boston, and this is my bit of the internet. </p>
+    <p>Check out my <a href="/blog/">blog</a> to see what I've been up to, or learn more <a href="/about/">about me</a>.</p>
   </div>
 
-  <div id="terminal-wrap">
-    <div class="term-titlebar">
-      <span class="term-title">guest@alyssachai.com: ~</span>
-      <div class="term-dots term-dots-spacer"></div>
-    </div>
-    <div class="term-body">
-      <div id="output">
-        <div class="out-line muted">type 'help' to explore</div>
-      </div>
-      <div class="prompt-row">
-        <span class="prompt-label">guest@alyssachai.com ~ $&nbsp;</span>
-        <input id="cmd-input" type="text" autofocus autocomplete="off" spellcheck="false"/>
-      </div>
-    </div>
+  <div class="home-links">
+    <a href="mailto:alyssa8chai@gmail.com" aria-label="email" title="email"><i class="fas fa-envelope"></i></a>
+    <a href="https://github.com/Aycaii" target="_blank" rel="noopener noreferrer" aria-label="github" title="github"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/alyssa-chai-i7/" target="_blank" rel="noopener noreferrer" aria-label="linkedin" title="linkedin"><i class="fab fa-linkedin"></i></a>
   </div>
 
 </div>
 
-<div class="home-clock">
-  <span class="status-dot"></span>
-  <span id="clock"></span>
-</div>
-
-<script src="public/terminal.js"></script>
 </body>
 </html>
